@@ -1,0 +1,416 @@
+[scoreboard] keys: ['meta', 'scoreboard']
+  games today: 0
+  FULL JSON: {
+  "meta": {
+    "code": 200,
+    "request": "https://nba-prod-us-east-1-mediaops-stats.s3.amazonaws.com/NBA/liveData/scoreboard/todaysScoreboard_00.json",
+    "time": "2025-08-23 11:36:40.3640",
+    "version": 1
+  },
+  "scoreboard": {
+    "gameDate": "2025-08-23",
+    "games": [],
+    "leagueId": "00",
+    "leagueName": "National Basketball Association"
+  }
+}...
+
+  schedule 2025-01-15 -> 23 games
+[boxscore] keys: ['game', 'meta']
+  matchup: CLE @ IND
+  score : 127 - 117
+  FULL JSON: {
+  "game": {
+    "arena": {
+      "arenaCity": "Indianapolis",
+      "arenaCountry": "US",
+      "arenaId": 1000063,
+      "arenaName": "Gainbridge Fieldhouse",
+      "arenaState": "IN",
+      "arenaTimezone": "America/Indiana/Indianapolis"
+    },
+    "attendance": 16035,
+    "awayTeam": {
+      "inBonus": "1",
+      "periods": [
+        {
+          "period": 1,
+          "periodType": "REGULAR",
+          "score": 37
+        },
+        {
+          "period": 2,
+          "periodType": "REGULAR",
+          "score": 25
+        },
+        {
+          "period": 3,
+          "periodType": "REGULAR",
+          "score": 38
+        },
+        {
+          "period": 4,
+          "periodType": "REGULAR",
+          "score": 27
+        }
+      ],
+      "players": [
+        {
+          "familyName": "Wade",
+          "firstName": "Dean",
+          "jerseyNum": "32",
+          "name": "Dean Wade",
+          "nameI": "D. Wade",
+          "oncourt": "0",
+          "order": 1,
+          "personId": 1629731,
+          "played": "1",
+          "position": "SF",
+          "starter": "1",
+          "statistics": {
+            "assists": 0,
+            "blocks": 1,
+            "blocksReceived": 0,
+            "fieldGoalsAttempted": 3,
+            "fieldGoalsMade": 0,
+            "fieldGoalsPercentage": 0.0,
+            "foulsDrawn": 0,
+            "foulsOffensive": 0,
+            "foulsPersonal": 3,
+            "foulsTechnical": 0,
+            "freeThrowsAttempted": 0,
+            "freeThrowsMade"...
+
+[poll] status: {'gameClock': 'PT00M00.00S', 'gameStatusText': 'Final', 'period': 4}
+  ETag: 1f17b973410ce5939829027fd149d62af7a8afbfa086c2869cf55566e9acd5e6
+  FULL JSON: {
+  "gameId": "0022400554",
+  "players": {
+    "away": [
+      {
+        "jerseyNum": "32",
+        "name": "Dean Wade",
+        "playerId": 1629731,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "4",
+        "name": "Evan Mobley",
+        "playerId": 1630596,
+        "pts": 22
+      },
+      {
+        "jerseyNum": "31",
+        "name": "Jarrett Allen",
+        "playerId": 1628386,
+        "pts": 16
+      },
+      {
+        "jerseyNum": "45",
+        "name": "Donovan Mitchell",
+        "playerId": 1628378,
+        "pts": 35
+      },
+      {
+        "jerseyNum": "10",
+        "name": "Darius Garland",
+        "playerId": 1629636,
+        "pts": 24
+      },
+      {
+        "jerseyNum": "3",
+        "name": "Caris LeVert",
+        "playerId": 1627747,
+        "pts": 7
+      },
+      {
+        "jerseyNum": "1",
+        "name": "Max Strus",
+        "playerId": 1629622,
+        "pts": 13
+      },
+      {
+        "jerseyNum": "20",
+        "name": "Georges Niang",
+        "playerId": 1627777,
+        "pts": 7
+      },
+      {
+        "jerseyNum": "35",
+        "name": "Isaac Okoro",
+        "playerId": 1630171,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "5",
+        "name": "Sam Merrill",
+        "playerId": 1630241,
+        "pts": 3
+      },
+      {
+        "jerseyNum": "9",
+        "name": "Craig Porter Jr.",
+        "playerId": 1641854,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "24",
+        "name": "Jaylon Tyson",
+        "playerId": 1642281,
+  ...
+
+[poll] 304 Not Modified as expected
+[pbp] events: 588
+  FIRST 5 EVENTS JSON: [
+  {
+    "actionNumber": 2,
+    "actionType": "period",
+    "clock": "PT12M00.00S",
+    "description": "Period Start",
+    "edited": "2025-01-15T00:05:47Z",
+    "isFieldGoal": 0,
+    "isTargetScoreLastPeriod": false,
+    "orderNumber": 20000,
+    "period": 1,
+    "periodType": "REGULAR",
+    "personId": 0,
+    "personIdsFilter": [],
+    "possession": 0,
+    "qualifiers": [],
+    "scoreAway": "0",
+    "scoreHome": "0",
+    "side": null,
+    "subType": "start",
+    "timeActual": "2025-01-15T00:05:47.4Z",
+    "x": null,
+    "xLegacy": null,
+    "y": null,
+    "yLegacy": null
+  },
+  {
+    "actionNumber": 4,
+    "actionType": "jumpball",
+    "clock": "PT11M59.00S",
+    "description": "Jump Ball J. Allen vs. M. Turner: Tip to E. Mobley",
+    "descriptor": "startperiod",
+    "edited": "2025-01-15T00:05:51Z",
+    "isFieldGoal": 0,
+    "isTargetScoreLastPeriod": false,
+    "jumpBallLostPersonId": 1626167,
+    "jumpBallLostPlayerName": "Turner",
+    "jumpBallRecoverdPersonId": 1630596,
+    "jumpBallRecoveredName": "E. Mobley",
+    "jumpBallWonPersonId": 1628386,
+    "jumpBallWonPlayerName": "Allen",
+    "orderNumber": 40000,
+    "period": 1,
+    "periodType": "REGULAR",
+    "personId": 1630596,
+    "personIdsFilter": [
+      1630596,
+      1628386,
+      1626167
+    ],
+    "playerName": "Mobley",
+    "playerNameI": "E. Mobley",
+    "possession": 1610612739,
+    "qualifiers": [],
+    "scoreAway": "0",
+    "scoreHome": "0",
+    "side": null,
+    "subType": "recovered",
+    "teamId": 161...
+
+PS B:\Programs\Personal Projects\NBA_APP\nba_tracker\backend> 
+PS B:\Programs\Personal Projects\NBA_APP\nba_tracker\backend> py test_endpoints.py
+[scoreboard] keys: ['meta', 'scoreboard']
+  games today: 0
+  (full JSON saved to _api_dumps\scoreboard_today.json)
+  schedule 2025-01-15 -> 23 games
+  using gameId from schedule: 0022400554
+[boxscore] keys: ['game', 'meta']
+  (full JSON saved to _api_dumps\boxscore_0022400554.json)
+  matchup: CLE @ IND
+  score  : 127 - 117
+  home players: 18  | away players: 17
+  AWAY starters:
+    #32 Dean Wade             PTS=0  REB=3  AST=0
+    # 4 Evan Mobley           PTS=22  REB=13  AST=1
+    #31 Jarrett Allen         PTS=16  REB=9  AST=2
+    #45 Donovan Mitchell      PTS=35  REB=9  AST=3
+    #10 Darius Garland        PTS=24  REB=1  AST=7
+  HOME starters:
+    #00 Bennedict Mathurin    PTS=19  REB=4  AST=2
+    #43 Pascal Siakam         PTS=23  REB=7  AST=4
+    #33 Myles Turner          PTS=17  REB=5  AST=0
+    #26 Ben Sheppard          PTS=7  REB=3  AST=2
+    # 2 Andrew Nembhard       PTS=10  REB=4  AST=9
+
+  PATHS to interesting fields in boxscore (points, score, gameClock, gameStatusText):
+    $['game']['awayTeam']['periods'][0]['score'] => 37
+    $['game']['awayTeam']['periods'][1]['score'] => 25
+    $['game']['awayTeam']['periods'][2]['score'] => 38
+    $['game']['awayTeam']['periods'][3]['score'] => 27
+    $['game']['awayTeam']['players'][0]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][1]['statistics']['points'] => 22
+    $['game']['awayTeam']['players'][2]['statistics']['points'] => 16
+    $['game']['awayTeam']['players'][3]['statistics']['points'] => 35
+    $['game']['awayTeam']['players'][4]['statistics']['points'] => 24
+    $['game']['awayTeam']['players'][5]['statistics']['points'] => 7
+    $['game']['awayTeam']['players'][6]['statistics']['points'] => 13
+    $['game']['awayTeam']['players'][7]['statistics']['points'] => 7
+    $['game']['awayTeam']['players'][8]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][9]['statistics']['points'] => 3
+    $['game']['awayTeam']['players'][10]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][11]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][12]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][13]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][14]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][15]['statistics']['points'] => 0
+    $['game']['awayTeam']['players'][16]['statistics']['points'] => 0
+    $['game']['awayTeam']['score'] => 127
+    $['game']['awayTeam']['statistics']['points'] => 127
+    $['game']['gameClock'] => PT00M00.00S
+    $['game']['gameStatusText'] => Final
+    $['game']['homeTeam']['periods'][0]['score'] => 30
+    $['game']['homeTeam']['periods'][1]['score'] => 31
+    $['game']['homeTeam']['periods'][2]['score'] => 28
+    $['game']['homeTeam']['periods'][3]['score'] => 28
+    $['game']['homeTeam']['players'][0]['statistics']['points'] => 19
+    $['game']['homeTeam']['players'][1]['statistics']['points'] => 23
+    $['game']['homeTeam']['players'][2]['statistics']['points'] => 17
+    $['game']['homeTeam']['players'][3]['statistics']['points'] => 7
+    $['game']['homeTeam']['players'][4]['statistics']['points'] => 10
+    $['game']['homeTeam']['players'][5]['statistics']['points'] => 10
+    $['game']['homeTeam']['players'][6]['statistics']['points'] => 11
+    $['game']['homeTeam']['players'][7]['statistics']['points'] => 10
+    $['game']['homeTeam']['players'][8]['statistics']['points'] => 8
+    $['game']['homeTeam']['players'][9]['statistics']['points'] => 2
+    $['game']['homeTeam']['players'][10]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][11]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][12]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][13]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][14]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][15]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][16]['statistics']['points'] => 0
+    $['game']['homeTeam']['players'][17]['statistics']['points'] => 0
+    $['game']['homeTeam']['score'] => 117
+    $['game']['homeTeam']['statistics']['points'] => 117
+
+[poll] status: {'gameClock': 'PT00M00.00S', 'gameStatusText': 'Final', 'period': 4}
+  ETag: 1f17b973410ce5939829027fd149d62af7a8afbfa086c2869cf55566e9acd5e6
+  (full JSON saved to _api_dumps\poll_0022400554.json)
+  [poll] 304 Not Modified as expected
+
+[pbp] events: 588
+  (full JSON saved to _api_dumps\pbp_0022400554.json)
+  first 3 events:
+   - {
+  "actionNumber": 2,
+  "actionType": "period",
+  "clock": "PT12M00.00S",
+  "description": "Period Start",
+  "edited": "2025-01-15T00:05:47Z",
+  "isFieldGoal": 0,
+  "isTargetScoreLastPeriod": false,
+  "orderNumber": 20000,
+  "period": 1,
+  "periodType": "REGULAR",
+  "personId": 0,
+  "personIdsFilter": [],
+  "possession": 0,
+  "qualifiers": [],
+  "scoreAway": "0",
+  "scoreHome": "0",
+  "side": null,
+  "subType": "start",
+  "timeActual": "2025-01-15T00:05:47.4Z",
+  "x": null,
+  "xLegacy": null,
+  "y": null,
+  "yLegacy": null
+}
+   - {
+  "actionNumber": 4,
+  "actionType": "jumpball",
+  "clock": "PT11M59.00S",
+  "description": "Jump Ball J. Allen vs. M. Turner: Tip to E. Mobley",
+  "descriptor": "startperiod",
+  "edited": "2025-01-15T00:05:51Z",
+  "isFieldGoal": 0,
+  "isTargetScoreLastPeriod": false,
+  "jumpBallLostPersonId": 1626167,
+  "jumpBallLostPlayerName": "Turner",
+  "jumpBallRecoverdPersonId": 1630596,
+  "jumpBallRecoveredName": "E. Mobley",
+  "jumpBallWonPersonId": 1628386,
+  "jumpBallWonPlayerName": "Allen",
+  "orderNumber": 40000,
+  "period": 1,
+  "periodType": "REGULAR",
+  "personId": 1630596,
+  "personIdsFilter": [
+    1630596,
+    1628386,
+    1626167
+  ],
+  "playerName": "Mobley",
+  "playerNameI": "E. Mobley",
+  "possession": 1610612739,
+  "qualifiers": [],
+  "scoreAway": "0",
+  "scoreHome": "0",
+  "side": null,
+  "subType": "recovered",
+  "teamId": 1610612739,
+  "teamTricode": "CLE",
+  "timeActual": "2025-01-15T00:05:51.2Z",
+  "x": null,
+  "xLegacy": null,
+  "y": null,
+  "yLegacy": null
+}
+   - {
+  "actionNumber": 7,
+  "actionType": "2pt",
+  "area": "Restricted Area",
+  "areaDetail": "0-8 Center",
+  "assistPersonId": 1629636,
+  "assistPlayerNameInitial": "D. Garland",
+  "assistTotal": 1,
+  "clock": "PT11M46.00S",
+  "description": "J. Allen alley-oop DUNK (2 PTS) (D. Garland 1 AST)",
+  "descriptor": "alley-oop",
+  "edited": "2025-01-15T00:06:46Z",
+  "isFieldGoal": 1,
+  "isTargetScoreLastPeriod": false,
+  "orderNumber": 70000,
+  "period": 1,
+  "periodType": "REGULAR",
+  "personId": 1628386,
+  "personIdsFilter": [
+    1628386,
+    1629636
+  ],
+  "playerName": "Allen",
+  "playerNameI": "J. Allen",
+  "pointsTotal": 2,
+  "possession": 1610612739,
+  "qualifiers": [
+    "pointsinthepaint"
+  ],
+  "scoreAway": "2",
+  "scoreHome": "0",
+  "shotDistance": 4.12,
+  "shotResult": "Made",
+  "side": "right",
+  "subType": "DUNK",
+  "teamId": 1610612739,
+  "teamTricode": "CLE",
+  "timeActual": "2025-01-15T00:06:01.3Z",
+  "x": 94.34954007884363,
+  "xLegacy": -41,
+  "y": 41.76623774509803,
+  "yLegacy": 1
+}
+PS B:\Programs\Personal Projects\NBA_APP\nba_tracker\backend> 

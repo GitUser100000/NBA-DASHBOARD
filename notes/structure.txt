@@ -1,0 +1,104 @@
+your-app/
+├─ frontend/                  # React (Vite)
+│  ├─ src/
+│  │  ├─ api/                 # tiny fetch wrappers (optional)
+│  │  ├─ components/
+│  │  ├─ pages/
+│  │  ├─ App.tsx
+│  │  └─ main.tsx
+│  ├─ public/
+│  ├─ index.html
+│  └─ package.json
+│
+├─ backend/                   # Flask API
+│  ├─ app.py                  # create_app() or simple app = Flask(__name__)
+│  ├─ routes/                 # optional, or keep routes in app.py for now
+│  │  └─ games.py
+│  ├─ requirements.txt
+│  └─ wsgi.py                 # for gunicorn later (tiny file)
+│
+└─ README.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+your-app/
+├─ frontend/                      # React app
+│  ├─ src/
+│  │  ├─ api/                    # tiny fetch wrappers
+│  │  │  ├─ client.ts            # base fetch (auth, retries)
+│  │  │  └─ games.ts             # calls your Flask routes
+│  │  ├─ components/
+│  │  │  ├─ selectors/           # dropdowns etc
+│  │  │  ├─ game/                # boxscore, pbp, lineups
+│  │  │  └─ ui/                  # buttons, inputs
+│  │  ├─ hooks/                  # usePersistedState, usePolling, etc.
+│  │  ├─ pages/                  # routes (Home, Game, Teams)
+│  │  ├─ state/                  # zustand/redux or context
+│  │  ├─ utils/                  # formatters, mappers
+│  │  ├─ constants/
+│  │  │  ├─ sports.ts            # your hardcoded sports/leagues
+│  │  │  └─ assets.ts            # logo URL bases, image fallbacks
+│  │  ├─ App.tsx
+│  │  └─ main.tsx
+│  ├─ public/
+│  ├─ index.html
+│  ├─ package.json
+│  └─ vite.config.ts             # or next.config.js if using Next.js
+│
+├─ backend/                       # Flask API
+│  ├─ app.py                      # create_app(), register blueprints
+│  ├─ wsgi.py                     # entrypoint for gunicorn
+│  ├─ config.py                   # settings (DEV/PROD), Redis URL, TTLs
+│  ├─ requirements.txt
+│  ├─ .env.example                # FLASK_ENV, REDIS_URL, CORS_ORIGINS
+│  ├─ nbaapi/                     # your package
+│  │  ├─ __init__.py
+│  │  ├─ cache.py                 # Flask-Caching init, helpers
+│  │  ├─ clients/                 # wrappers around nba_api
+│  │  │  └─ stats_client.py       # functions using nba_api endpoints
+│  │  ├─ services/                # app logic (compose multiple calls)
+│  │  │  ├─ games.py              # get_boxscore, get_scoreboard...
+│  │  │  └─ metadata.py           # teams, players, logos
+│  │  ├─ routes/                  # blueprints (pure HTTP layer)
+│  │  │  ├─ games.py              # /api/game/<id>/boxscore, /scoreboard
+│  │  │  ├─ teams.py              # /api/teams, /api/team/<id>
+│  │  │  └─ health.py             # /api/health
+│  │  └─ utils/
+│  │     ├─ mappers.py            # map nba_api DataFrames -> JSON shape
+│  │     └─ errors.py             # error classes / handlers
+│  └─ tests/
+│     ├─ test_games.py
+│     └─ test_metadata.py
+│
+├─ infra/
+│  ├─ docker/
+│  │  ├─ Dockerfile.backend
+│  │  ├─ Dockerfile.frontend
+│  │  └─ nginx.conf               # optional reverse proxy
+│  ├─ compose.yml                 # frontend + backend + redis (dev)
+│  └─ deploy/                     # fly.toml, render.yaml, etc.
+│
+├─ .prettierrc / .eslintrc.cjs
+├─ README.md
+└─ LICENSE

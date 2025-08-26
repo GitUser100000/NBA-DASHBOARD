@@ -1,0 +1,46 @@
+# app.py
+from flask import Flask, jsonify
+import time, requests
+
+app = Flask(__name__)
+SESSION = requests.Session()
+UA = {"User-Agent": "Mozilla/5.0"}  # helps avoid 403s
+
+CACHE = {}  # key -> {"data": obj, "ts": epoch_seconds}
+def fetch_throttled(key: str, url: str, ttl: int):
+    now = time.time()
+    entry = CACHE.get(key)
+
+    # Serve cached if still fresh
+    if entry and (now - entry["ts"] < ttl):
+        return entry["data"]
+
+    # Otherwise refresh (best-effort)
+    try:
+        r = SESSION.get(url, headers=UA, timeout=8)
+        r.raise_for_status()
+        data = r.json()
+        CACHE[key] = {"data": data, "ts": now}
+        return data
+    except Exception:
+        # If refresh fails, fall back to stale (if any)
+        if entry:
+            return entry["data"]
+        raise  # nothing cached yet → bubble up
+
+SCOREBOARD_URL = "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+BOX_URL = "https://cdn.nba.com/static/json/liveData/boxscore/boxscore_{gid}.json"
+
+@app.get("/scoreboard")
+def scoreboard():
+    data = fetch_throttled("scoreboard:today", SCOREBOARD_URL, ttl=12)  # ~10–12s
+    return jsonify(data)
+
+@app.get("/games/<gid>")
+def game(gid):
+    url = BOX_URL.format(gid=gid)
+    data = fetch_throttled(f"box:{gid}", url, ttl=10)  # ~8–12s is fine
+    return jsonify(data)
+
+if __name__ == "__main__":
+    app.run(debug=True, port=8000)

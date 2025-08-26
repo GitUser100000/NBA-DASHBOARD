@@ -1,0 +1,236 @@
+{
+  "gameId": "0022400554",
+  "players": {
+    "away": [
+      {
+        "jerseyNum": "32",
+        "name": "Dean Wade",
+        "playerId": 1629731,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "4",
+        "name": "Evan Mobley",
+        "playerId": 1630596,
+        "pts": 22
+      },
+      {
+        "jerseyNum": "31",
+        "name": "Jarrett Allen",
+        "playerId": 1628386,
+        "pts": 16
+      },
+      {
+        "jerseyNum": "45",
+        "name": "Donovan Mitchell",
+        "playerId": 1628378,
+        "pts": 35
+      },
+      {
+        "jerseyNum": "10",
+        "name": "Darius Garland",
+        "playerId": 1629636,
+        "pts": 24
+      },
+      {
+        "jerseyNum": "3",
+        "name": "Caris LeVert",
+        "playerId": 1627747,
+        "pts": 7
+      },
+      {
+        "jerseyNum": "1",
+        "name": "Max Strus",
+        "playerId": 1629622,
+        "pts": 13
+      },
+      {
+        "jerseyNum": "20",
+        "name": "Georges Niang",
+        "playerId": 1627777,
+        "pts": 7
+      },
+      {
+        "jerseyNum": "35",
+        "name": "Isaac Okoro",
+        "playerId": 1630171,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "5",
+        "name": "Sam Merrill",
+        "playerId": 1630241,
+        "pts": 3
+      },
+      {
+        "jerseyNum": "9",
+        "name": "Craig Porter Jr.",
+        "playerId": 1641854,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "24",
+        "name": "Jaylon Tyson",
+        "playerId": 1642281,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "13",
+        "name": "Tristan Thompson",
+        "playerId": 202684,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "21",
+        "name": "Emoni Bates",
+        "playerId": 1641734,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "2",
+        "name": "Ty Jerome",
+        "playerId": 1629660,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "15",
+        "name": "JT Thor",
+        "playerId": 1630550,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "33",
+        "name": "Luke Travers",
+        "playerId": 1631247,
+        "pts": 0
+      }
+    ],
+    "home": [
+      {
+        "jerseyNum": "00",
+        "name": "Bennedict Mathurin",
+        "playerId": 1631097,
+        "pts": 19
+      },
+      {
+        "jerseyNum": "43",
+        "name": "Pascal Siakam",
+        "playerId": 1627783,
+        "pts": 23
+      },
+      {
+        "jerseyNum": "33",
+        "name": "Myles Turner",
+        "playerId": 1626167,
+        "pts": 17
+      },
+      {
+        "jerseyNum": "26",
+        "name": "Ben Sheppard",
+        "playerId": 1641767,
+        "pts": 7
+      },
+      {
+        "jerseyNum": "2",
+        "name": "Andrew Nembhard",
+        "playerId": 1629614,
+        "pts": 10
+      },
+      {
+        "jerseyNum": "1",
+        "name": "Obi Toppin",
+        "playerId": 1630167,
+        "pts": 10
+      },
+      {
+        "jerseyNum": "5",
+        "name": "Jarace Walker",
+        "playerId": 1641716,
+        "pts": 11
+      },
+      {
+        "jerseyNum": "9",
+        "name": "T.J. McConnell",
+        "playerId": 204456,
+        "pts": 10
+      },
+      {
+        "jerseyNum": "3",
+        "name": "Thomas Bryant",
+        "playerId": 1628418,
+        "pts": 8
+      },
+      {
+        "jerseyNum": "10",
+        "name": "RayJ Dennis",
+        "playerId": 1642484,
+        "pts": 2
+      },
+      {
+        "jerseyNum": "12",
+        "name": "Johnny Furphy",
+        "playerId": 1642277,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "16",
+        "name": "James Johnson",
+        "playerId": 201949,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "0",
+        "name": "Tyrese Haliburton",
+        "playerId": 1630169,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "23",
+        "name": "Aaron Nesmith",
+        "playerId": 1630174,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "8",
+        "name": "Enrique Freeman",
+        "playerId": 1642402,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "22",
+        "name": "Isaiah Jackson",
+        "playerId": 1630543,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "29",
+        "name": "Quenton Jackson",
+        "playerId": 1631245,
+        "pts": 0
+      },
+      {
+        "jerseyNum": "13",
+        "name": "James Wiseman",
+        "playerId": 1630164,
+        "pts": 0
+      }
+    ]
+  },
+  "scores": {
+    "away": {
+      "score": 127,
+      "teamId": 1610612739,
+      "triCode": "CLE"
+    },
+    "home": {
+      "score": 117,
+      "teamId": 1610612754,
+      "triCode": "IND"
+    }
+  },
+  "status": {
+    "gameClock": "PT00M00.00S",
+    "gameStatusText": "Final",
+    "period": 4
+  }
+}

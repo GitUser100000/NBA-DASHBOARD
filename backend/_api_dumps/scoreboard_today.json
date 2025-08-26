@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "code": 200,
+    "request": "https://nba-prod-us-east-1-mediaops-stats.s3.amazonaws.com/NBA/liveData/scoreboard/todaysScoreboard_00.json",
+    "time": "2025-08-23 11:44:01.441",
+    "version": 1
+  },
+  "scoreboard": {
+    "gameDate": "2025-08-23",
+    "games": [],
+    "leagueId": "00",
+    "leagueName": "National Basketball Association"
+  }
+}

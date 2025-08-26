@@ -1,0 +1,3 @@
+flask
+requests
+nba_api

@@ -1,0 +1,187 @@
+Endpoint: GET /games?date=20-10-2025
+
+Description
+Fetches all NBA games on a given date. Returns scoreboard data.
+
+Example Response
+
+{
+  "GameHeader": [
+    {
+      "GAME_DATE_EST": "2025-10-20T00:00:00",
+      "GAME_ID": "0022500001",
+      "GAME_STATUS_TEXT": "Final",
+      "HOME_TEAM_ID": 1610612747,
+      "VISITOR_TEAM_ID": 1610612742
+    },
+    {
+      "GAME_DATE_EST": "2025-10-20T00:00:00",
+      "GAME_ID": "0022500002",
+      "GAME_STATUS_TEXT": "Final",
+      "HOME_TEAM_ID": 1610612744,
+      "VISITOR_TEAM_ID": 1610612751
+    }
+  ],
+  "LineScore": [
+    {
+      "GAME_ID": "0022500001",
+      "TEAM_ID": 1610612742,
+      "TEAM_ABBREVIATION": "DAL",
+      "PTS": 102
+    },
+    {
+      "GAME_ID": "0022500001",
+      "TEAM_ID": 1610612747,
+      "TEAM_ABBREVIATION": "LAL",
+      "PTS": 110
+    },
+    {
+      "GAME_ID": "0022500002",
+      "TEAM_ID": 1610612751,
+      "TEAM_ABBREVIATION": "BKN",
+      "PTS": 95
+    },
+    {
+      "GAME_ID": "0022500002",
+      "TEAM_ID": 1610612744,
+      "TEAM_ABBREVIATION": "GSW",
+      "PTS": 115
+    }
+  ],
+  "TeamLeaders": [
+    {
+      "GAME_ID": "0022500001",
+      "HOME_TEAM_ID": 1610612747,
+      "HOME_PTS_LEADER_PLAYER_ID": 2544,
+      "HOME_PTS_LEADER_POINTS": 30,
+      "VISITOR_TEAM_ID": 1610612742,
+      "VISITOR_PTS_LEADER_PLAYER_ID": 1629029,
+      "VISITOR_PTS_LEADER_POINTS": 28
+    },
+    {
+      "GAME_ID": "0022500002",
+      "HOME_TEAM_ID": 1610612744,
+      "HOME_PTS_LEADER_PLAYER_ID": 201939,
+      "HOME_PTS_LEADER_POINTS": 32,
+      "VISITOR_TEAM_ID": 1610612751,
+      "VISITOR_PTS_LEADER_PLAYER_ID": 203999,
+      "VISITOR_PTS_LEADER_POINTS": 25
+    }
+  ]
+}
+
+
+Key Fields
+
+GameHeader: Game metadata (GAME_ID, teams, status, etc.).
+
+LineScore: Per-team box score by quarter + total points.
+
+TeamLeaders: Points leaders for each team.
+
+Endpoint: GET /box-score/<game_id>
+
+Description
+Fetches detailed player and team stats for a single game.
+
+Example Response
+
+{
+  "PlayerStats": [
+    {
+      "GAME_ID": "0022500001",
+      "TEAM_ID": 1610612747,
+      "TEAM_ABBREVIATION": "LAL",
+      "PLAYER_ID": 2544,
+      "PLAYER_NAME": "LeBron James",
+      "START_POSITION": "F",
+      "MIN": "35:12",
+      "FGM": 12,
+      "FGA": 20,
+      "FG_PCT": 0.6,
+      "FG3M": 2,
+      "FG3A": 5,
+      "FG3_PCT": 0.4,
+      "FTM": 4,
+      "FTA": 5,
+      "FT_PCT": 0.8,
+      "OREB": 2,
+      "DREB": 8,
+      "REB": 10,
+      "AST": 9,
+      "STL": 1,
+      "BLK": 0,
+      "TO": 3,
+      "PF": 2,
+      "PTS": 30,
+      "PLUS_MINUS": 12
+    }
+  ],
+  "TeamStats": [
+    {
+      "GAME_ID": "0022500001",
+      "TEAM_ID": 1610612747,
+      "TEAM_ABBREVIATION": "LAL",
+      "FGM": 40,
+      "FGA": 85,
+      "FG_PCT": 0.471,
+      "FG3M": 10,
+      "FG3A": 26,
+      "FG3_PCT": 0.385,
+      "FTM": 20,
+      "FTA": 24,
+      "FT_PCT": 0.833,
+      "OREB": 9,
+      "DREB": 37,
+      "REB": 46,
+      "AST": 25,
+      "STL": 6,
+      "BLK": 5,
+      "TO": 12,
+      "PF": 19,
+      "PTS": 110
+    }
+  ],
+  "TeamStarterBenchStats": [
+    {
+      "GAME_ID": "0022500001",
+      "TEAM_ID": 1610612747,
+      "TEAM_ABBREVIATION": "LAL",
+      "STARTERS_PTS": 84,
+      "BENCH_PTS": 26
+    }
+  ]
+}
+
+
+Key Fields
+
+PlayerStats: One row per player with box score stats.
+
+TeamStats: Aggregate totals per team.
+
+TeamStarterBenchStats: Splits points between starters and bench.
+
+Endpoint: GET /player-info/<player_id>
+
+Description
+Fetches the official CDN headshot URL for a player.
+
+Example Response (current implementation, plain string)
+
+https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png
+
+
+Example Response (recommended JSON)
+
+{
+  "player_id": "201939",
+  "photo_url": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"
+}
+
+
+Key Fields
+
+player_id: The NBA player ID.
+
+photo_url: URL to 1040x760 player headshot.
