@@ -16,11 +16,15 @@ const gamePeriod = gameData.statusText === 'Final' ? <p>{`${gameData.statusText}
 
   return (
     <div className="game-card">
-      <h3>{`${gameData.home.triCode} V ${gameData.away.triCode}`}</h3>
-      <p>{`${gameData.home.score} - ${gameData.away.score}`}</p>
+      <h3>{`${gameData.home.triCode} vs ${gameData.away.triCode}`}</h3>
+      <div className="game-info">
+        <div className="score">{`${gameData.home.score} - ${gameData.away.score}`}</div>
+        <div className="game-details">
+          <div className="status">{gameData.statusText === 'Final' ? gameData.statusText : `Q${gameData.period}`}</div>
+          <div className="location">{gameData.arena} - {gameData.city}</div>
+        </div>
+      </div>
       <MyGoToGameButton gameId={gameData.gameId}/>
-      {gamePeriod}
-      <p>{gameData.arena} - {gameData.city}</p>
     </div>
   );
 }

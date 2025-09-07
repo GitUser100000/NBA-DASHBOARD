@@ -5,8 +5,8 @@ export default function MyPlayerCard({ player }) {
         <img src={player.headshot}/>
       </div>
       <div className="player-info">
-        <div>{player.name}</div>
-        <div>{player.starter === true ? "Starter" : "Bench"}</div>
+        <div className="player-name">{player.name}</div>
+        <div className="player-position">{player.starter === true ? "Starter" : "Bench"}</div>
         <div className="player-jersey-number">{player.jerseyNum}</div>
       </div>
     </div>

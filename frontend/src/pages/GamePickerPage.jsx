@@ -12,11 +12,10 @@ export default function GamePickerPage() {
   const [ date, setDate ] = useState(formattedDate);
   const [ gameId, setGameId ] = useState();
   return (
-    <div>
-      <h2>Pick a game</h2>
+    <div className="game-picker-page">
+      <h2>Pick a Game</h2>
       <MyDatePicker date={date} setDate={setDate}/>
-      <MyGamePicker date={date} setGameId/>
-      <p>Footer</p>
+      <MyGamePicker date={date} setGameId={setGameId}/>
     </div>
   );
 }

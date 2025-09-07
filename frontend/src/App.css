@@ -130,12 +130,27 @@ h3 {
 
 /* ---------- LOGOS (header) ---------- */
 
+/* Dashboard team logos - more specific targeting */
+.dashboard .team-logo,
+.dashboard img.team-logo,
+.dashboard img[class="team-logo"],
+img.team-logo,
+.dashboard > img,
+.dashboard img {
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
 /* Force override hardcoded width */
 img[width="200px"] {
-  width: 220px !important;
-  height: 90px !important;
-  max-width: 220px !important;
-  max-height: 90px !important;
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
   object-fit: contain;
 }
 
@@ -144,10 +159,10 @@ img[src*="logo"],
 img[alt*="logo"],
 .team-logo img,
 .logo img {
-  max-height: 90px !important;
-  max-width: 220px !important;
-  width: 220px !important;
-  height: 90px !important;
+  max-height: 100px !important;
+  max-width: 250px !important;
+  width: 250px !important;
+  height: 100px !important;
   object-fit: contain;
 }
 
@@ -155,10 +170,10 @@ img[alt*="logo"],
 .team-logo-container,
 .logo-container,
 img[src*="logo"] {
-  width: 220px !important;
-  height: 90px !important;
-  max-width: 220px !important;
-  max-height: 90px !important;
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,10 +185,10 @@ header img,
 .team-logo img,
 .logo img,
 img {
-  max-height: 90px !important;
-  max-width: 220px !important;
-  width: 220px !important;
-  height: 90px !important;
+  max-height: 100px !important;
+  max-width: 250px !important;
+  width: 250px !important;
+  height: 100px !important;
   object-fit: contain;
 }
 
@@ -181,11 +196,362 @@ img {
 .header div,
 .team-logo div,
 .logo div {
-  max-width: 220px !important;
-  max-height: 90px !important;
-  width: 220px !important;
-  height: 90px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  width: 250px !important;
+  height: 100px !important;
   overflow: hidden;
+}
+
+/* ---------- GAME PICKER PAGE ---------- */
+
+.game-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Center the last card when there's an odd number */
+.game-card-list:has(.game-card:last-child:nth-child(odd)) {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.game-card-list:has(.game-card:last-child:nth-child(odd)) .game-card:last-child {
+  grid-column: 1 / -1;
+  max-width: 500px;
+  justify-self: center;
+}
+
+.game-card {
+  background: rgba(20, 30, 50, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+  border-radius: 20px 20px 0 0;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 107, 53, 0.5);
+}
+
+.game-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+.game-card .game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.game-card .score {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  flex: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.game-card .game-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  min-width: 120px;
+}
+
+.game-card .status {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ff6b35;
+  margin: 0.25rem 0;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  text-align: center;
+  min-width: 80px;
+}
+
+.game-card .location {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0.5rem 0 0.25rem 0;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.game-card p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.5rem 0;
+}
+
+.game-card p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+/* Go to Game Button */
+
+.game-card button:hover,
+.go-to-game-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  background: linear-gradient(135deg, #f7931e, #ff6b35);
+}
+
+.game-card button,
+.go-to-game-button {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+  align-self: center;
+}
+
+.game-card button:active,
+.go-to-game-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Date Picker Styling */
+.date-picker {
+  background: rgba(20, 30, 50, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  width: 200px !important;
+  margin: 1rem auto !important;
+  display: block !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-stroke: none !important;
+}
+
+.date-picker:focus {
+  border-color: #ff6b35 !important;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
+  outline: none !important;
+}
+
+.date-picker:invalid {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Target the actual input element inside React DatePicker */
+.react-datepicker__input-container input {
+  color: #ffffff !important;
+  background: rgba(20, 30, 50, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  width: 200px !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-stroke: none !important;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: #ff6b35 !important;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
+  outline: none !important;
+}
+
+.calendar {
+  background: rgba(20, 30, 50, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+}
+
+.calendar .react-datepicker__header {
+  background: linear-gradient(135deg, #ff6b35, #f7931e) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.calendar .react-datepicker__day-name {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 12px !important;
+}
+
+.calendar .react-datepicker__day {
+  color: #ffffff !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.calendar .react-datepicker__day:hover {
+  background: rgba(255, 107, 53, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.calendar .react-datepicker__day--selected {
+  background: #ff6b35 !important;
+  color: #ffffff !important;
+}
+
+.calendar .react-datepicker__day--today {
+  background: rgba(255, 107, 53, 0.2) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Force all calendar text to be visible */
+.calendar * {
+  font-family: 'Roboto', sans-serif !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.calendar .react-datepicker__current-month {
+  color: #ffffff !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-stroke: none !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+}
+
+.calendar .react-datepicker__day-name {
+  color: #ffffff !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.calendar .react-datepicker__day {
+  color: #ffffff !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Game Picker Page Layout */
+.game-picker-page {
+  min-height: 100vh;
+  background: #0a0e1a;
+  padding: 2rem 0;
+}
+
+.game-picker-page h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-picker-page p {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* No Games Message */
+.game-card-list p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 3rem;
+  background: rgba(20, 30, 50, 0.5);
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
 /* ---------- SCOREBOARD (center) ---------- */
@@ -267,8 +633,8 @@ img {
 }
 
 .player-headshot {
-  flex: 0 0 70px;
-  height: 70px;
+  flex: 0 0 80px;
+  height: 80px;
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid #ff6b35;
@@ -298,6 +664,7 @@ img {
   color: #ffffff;
   margin: 0 0 0.25rem 0;
   line-height: 1.2;
+  text-align: center;
 }
 .player-position {
   font-size: 0.8rem;
@@ -306,6 +673,7 @@ img {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .player-jersey-number {
@@ -336,7 +704,7 @@ img {
 .player-stats td {
   padding: 0.25rem 0.5rem;
   text-align: center;
-  white-space: nowrap;
+  white-space: nowrap;  
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -379,4 +747,73 @@ img {
   .player-card { flex-direction: column; text-align: center; gap: 0.5rem; }
   .player-stats { border-radius: 0 0 8px 8px; }
   .player-stats table { font-size: 0.7rem; }
+}
+
+/* Force team logo sizing - highest priority */
+.dashboard img.team-logo {
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+}
+
+/* Even more specific targeting for dashboard logos */
+div.dashboard > img[class="team-logo"] {
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Target any img in dashboard */
+.dashboard img {
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+}
+
+/* Nuclear option - target all images with team-logo class */
+img.team-logo {
+  width: 300px !important;
+  height: 120px !important;
+  max-width: 300px !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Even more nuclear - target by src attribute */
+img[src*="logo"] {
+  width: 250px !important;
+  height: 100px !important;
+  max-width: 250px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+}
+
+/* Target the exact structure from MyDashboardHeader */
+div > div.dashboard > img.team-logo {
+  width: 300px !important;
+  height: 120px !important;
+  max-width: 300px !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* ULTIMATE OVERRIDE - highest specificity possible */
+html body div div.dashboard img.team-logo {
+  width: 350px !important;
+  height: 140px !important;
+  max-width: 350px !important;
+  max-height: 140px !important;
+  min-width: 350px !important;
+  min-height: 140px !important;
+  object-fit: contain !important;
+  display: block !important;
 }
