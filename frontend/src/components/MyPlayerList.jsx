@@ -24,12 +24,12 @@ export default function MyPlayerList({ playerlist = []}) {
   };
 
   return (
-    <div>
+    <div className="player-list">
       <h2>On Court</h2>
       <ul>
       {playersOnCourt.map((p) => {
         return (
-          <div>
+          <div className="player">
             <MyPlayerCard key={p.id} player={p}/>
             <MyPlayerStatCard key={p.id} stats={p.stats} />
           </div>
@@ -40,7 +40,7 @@ export default function MyPlayerList({ playerlist = []}) {
       <ul>
       {playersOnBench.map((p) => {
         return (
-          <div>
+          <div className="player">
             <MyPlayerCard key={p.id} player={p}/>
             <MyPlayerStatCard key={p.id} stats={p.stats} />
           </div>

@@ -156,13 +156,15 @@ export default function GameDashboard() {
 
   console.log("[Render] Header data", headerData);
   return (
-    <>
+    <div>
       <MyDashboardHeader headerData={headerData}/>
-      <MyPlayerList playerlist={playerListData.homePlayerList}/>
-      <MyScoreboard scoreBoardData={scoreboardData}/>
-      {/*<MyPBPContainer />*/}
-      <MyPlayerList playerlist={playerListData.awayPlayerList}/>
-    </>
+      <div className="dashboard-content">
+        <MyPlayerList playerlist={playerListData.homePlayerList}/>
+        <MyScoreboard scoreBoardData={scoreboardData}/>
+        {/*<MyPBPContainer />*/}
+        <MyPlayerList playerlist={playerListData.awayPlayerList}/>
+      </div>
+    </div>
   );
 };
 

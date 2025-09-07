@@ -1,19 +1,382 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* NBA App Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #0a0e1a;
+  color: #ffffff;
+  min-height: 100vh;
 }
+
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  padding-inline-start: 0;
+  list-style: none;
+  margin: 0;
+}
+
+/* ---------- LAYOUT ---------- */
 
 .dashboard {
   display: flex;
-  gap: 24px;            /* space between columns */
+  gap: 1rem;
   align-items: center;
   width: 100%;
-
+  height: 50px;
+  padding: 0.5rem;
+  background: rgba(20, 30, 50, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  padding-top: 3%;
+  padding-bottom: 1%;
 }
 
 .dashboard > * {
-  flex: 1 1 0;          /* make each direct child grow to share the row */
-  min-width: 0;         /* important: allows content to shrink instead of forcing overflow */
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-content {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: calc(100vh - 120px);
+  min-width: 0;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Main content cards styling */
+.dashboard-content > * {
+  flex: 1 1 0;
+  min-width: 0;
+  background: rgba(20, 30, 50, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 3 : 2 : 3 ratio across the row */
+.dashboard-content > .player-list { flex: 3 1 0; min-width: 0; }
+.dashboard-content > .scoreboard  { flex: 2 1 0; min-width: 0; }
+.dashboard-content > .player-list.right { flex: 3 1 0; min-width: 0; }
+
+/* ---------- HEADERS ---------- */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+}
+h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+}
+h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.25rem 1rem;
+  height: auto;
+  min-height: 35px;
+  /* background: rgba(20, 30, 50, 0.9); */
+  /* s */
+}
+
+.game-location {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0.25rem 0 0 0;
+  font-weight: 400;
+}
+
+.game-clock {
+  font-size: 0.9rem;
+  color: #ff6b35;
+  margin: 0.25rem 0 0 0;
+  font-weight: 600;
+}
+
+/* ---------- LOGOS (header) ---------- */
+
+/* Force override hardcoded width */
+img[width="200px"] {
+  width: 220px !important;
+  height: 90px !important;
+  max-width: 220px !important;
+  max-height: 90px !important;
+  object-fit: contain;
+}
+
+.team-logo,
+img[src*="logo"],
+img[alt*="logo"],
+.team-logo img,
+.logo img {
+  max-height: 90px !important;
+  max-width: 220px !important;
+  width: 220px !important;
+  height: 90px !important;
+  object-fit: contain;
+}
+
+#title .team-logo-container,
+.team-logo-container,
+.logo-container,
+img[src*="logo"] {
+  width: 220px !important;
+  height: 90px !important;
+  max-width: 220px !important;
+  max-height: 90px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+header img,
+.header img,
+.team-logo img,
+.logo img,
+img {
+  max-height: 90px !important;
+  max-width: 220px !important;
+  width: 220px !important;
+  height: 90px !important;
+  object-fit: contain;
+}
+
+#title div,
+.header div,
+.team-logo div,
+.logo div {
+  max-width: 220px !important;
+  max-height: 90px !important;
+  width: 220px !important;
+  height: 90px !important;
+  overflow: hidden;
+}
+
+/* ---------- SCOREBOARD (center) ---------- */
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+  background: rgba(20, 30, 50, 0.9);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* remove the big header gap */
+  margin-top: 0;
+  margin-block: 0;  /* start from top of container */
+}
+
+.scoreboard-container {
+  background: #ff6b35;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+.scoreboard-container h2 {
+  padding: 0;            /* (fix: no commas) */
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- PLAYER LISTS (left/right) ---------- */
+
+.player-list {
+  overflow-y: auto;
+  height: 100%;
+  padding: 1rem;
+}
+.player-list h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Cards */
+.player {
+  display: flex;
+  background: rgba(30, 40, 60, 0.9);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  width: 100%;
+  min-width: 0;        /* allow shrink */
+}
+.player:hover {
+  background: rgba(40, 50, 70, 0.9);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.player-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;        /* allow shrink */
+}
+
+.player-headshot {
+  flex: 0 0 70px;
+  height: 70px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ff6b35;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.player-headshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;        /* allow text to truncate */
+  text-align: left;
+}
+
+.player-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+.player-position {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.player-jersey-number {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #ff6b35;
+  text-align: center;
+  min-width: 30px;
+}
+
+.player-stats {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0 8px 8px 0;
+  min-width: 0;        /* allow shrink */
+}
+
+.player-stats table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  table-layout: fixed; /* keeps columns from forcing width */
+}
+.player-stats th,
+.player-stats td {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.player-stats th {
+  background: #ff6b35;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-radius: 4px 4px 0 0;
+}
+.player-stats td {
+  color: #ffffff;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.player-stats tr:last-child td {
+  border-bottom: none;
+  border-radius: 0 0 4px 4px;
+}
+.player-stats tr:hover td {
+  background: rgba(255, 107, 53, 0.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .dashboard { flex-direction: column; gap: 0.5rem; padding: 0.5rem; }
+  .dashboard > * { min-height: auto; }
+
+  /* Stack or reduce center width on mobile */
+  .dashboard-content { flex-direction: column; }
+  .scoreboard { margin-block: 0; }
+  .dashboard-content > .player-list,
+  .dashboard-content > .scoreboard { flex: 1 1 auto; }
+
+  h1 { font-size: 1.5rem; }
+  .player-card { flex-direction: column; text-align: center; gap: 0.5rem; }
+  .player-stats { border-radius: 0 0 8px 8px; }
+  .player-stats table { font-size: 0.7rem; }
 }

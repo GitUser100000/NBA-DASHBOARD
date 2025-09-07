@@ -7,7 +7,7 @@ import GameDashboard from './pages/GameDashboard'
 function App() {
   return (
     <>
-      <h1>My App</h1>
+      {/* <h1>NBA APP</h1> */}
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<Navigate to="/GamePickerPage" replace />} />
