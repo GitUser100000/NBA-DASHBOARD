@@ -4,6 +4,7 @@ import { getDashboardData, getUpdatedDashboard } from "../api/data";
 import MyDashboardHeader from "../components/MyDashboardHeader";
 import MyScoreboard from "../components/MyScoreboard";
 import MyPlayerList from "../components/MyPlayerList";
+// Fixed case sensitivity issue - force rebuild
 
 export default function GameDashboard() {
   const { gameId } = useParams();
