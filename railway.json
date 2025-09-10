@@ -1,6 +1,9 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "nixpacksConfigPath": "backend"
+    "nixpacksConfigPath": "backend/nixpacks.toml"
+  },
+  "deploy": {
+    "startCommand": "cd backend && npm start"
   }
 }
