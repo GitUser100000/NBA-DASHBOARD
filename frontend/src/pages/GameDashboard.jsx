@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDashboardData, getUpdatedDashboard } from "../api/data";
-import MyDashboardHeader from "../components/MyDashBoardHeader";
+import MyDashboardHeader from "../components/MyDashboardHeader";
 import MyScoreboard from "../components/MyScoreboard";
 import MyPlayerList from "../components/MyPlayerList";
 
