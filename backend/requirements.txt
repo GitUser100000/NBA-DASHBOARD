@@ -1,3 +1,4 @@
 flask
 requests
 nba_api
+flask-cors

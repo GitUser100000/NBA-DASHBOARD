@@ -1,4 +1,5 @@
 # server.py
+import os
 from flask import Flask, request, jsonify, make_response, redirect
 from flask_cors import CORS
 import time, json, hashlib, requests
@@ -261,4 +262,5 @@ def poll_game(game_id):
 
 # ---------------- boot ----------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port, debug=False)

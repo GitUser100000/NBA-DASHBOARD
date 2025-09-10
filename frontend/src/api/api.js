@@ -2,7 +2,9 @@
 import axios from "axios";
 
 // Make sure this matches your Flask server port
-export const SERVER_BASE_URL = "http://127.0.0.1:8000";
+const isDevlopment = import.meta.env.DEV;
+
+export const SERVER_BASE_URL = isDevlopment ? "http://127.0.0.1:8000" : "https://your-backend-url.railway.app";
 
 // Reuse a configured axios instance
 const http = axios.create({
