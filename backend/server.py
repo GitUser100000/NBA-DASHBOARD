@@ -14,7 +14,7 @@ from functools import lru_cache
 import threading
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*", supports_credentials=True)
 
 # Enable gzip/brotli compression for all responses
 Compress(app)
