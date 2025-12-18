@@ -928,7 +928,10 @@ h4 { font-size: 1rem; }
   align-items: center;
   gap: var(--space-sm);
   padding: var(--space-sm);
+  width: 160px;
   min-width: 160px;
+  max-width: 160px;
+  flex-shrink: 0;
 }
 
 .player-headshot {
@@ -952,19 +955,22 @@ h4 { font-size: 1rem; }
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .player-name {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .player-position {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 500;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -973,7 +979,7 @@ h4 { font-size: 1rem; }
 
 .player-jersey-number {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent-primary);
 }
