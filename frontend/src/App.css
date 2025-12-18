@@ -290,6 +290,9 @@ h4 { font-size: 1rem; }
   overflow: hidden;
   transition: var(--transition-base);
   animation: cardSlideIn 0.4s ease-out backwards;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .game-card:nth-child(1) { animation-delay: 0ms; }
@@ -326,53 +329,118 @@ h4 { font-size: 1rem; }
   box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
-.game-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: var(--space-md);
-  letter-spacing: 0.02em;
+/* Team matchup section with logos */
+.game-card-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
 }
 
-.game-card .game-info {
+.game-card-team {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: var(--space-xs);
+  min-width: 80px;
+}
+
+.game-card-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.game-card-logo-fallback {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.game-card-tricode {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.game-card-vs {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Score section */
+.game-card-score-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
   padding: var(--space-md);
   background: var(--bg-tertiary);
   border-radius: var(--radius-md);
-  margin-bottom: var(--space-md);
-  gap: var(--space-md);
 }
 
-.game-card .score {
+.game-card-scores {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.game-card-score-num {
   font-family: var(--font-mono);
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.05em;
+  min-width: 60px;
+  text-align: center;
 }
 
-.game-card .game-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-xs);
+.game-card-score-divider {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
-.game-card .status {
-  font-size: 0.875rem;
+.game-card-status {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent-primary);
   padding: var(--space-xs) var(--space-sm);
-  background: var(--accent-glow);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
-.game-card .location {
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Location */
+.game-card-location {
   font-size: 0.8rem;
   color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* Go to Game Button */
@@ -405,11 +473,44 @@ h4 { font-size: 1rem; }
 }
 
 /* ========== DASHBOARD LAYOUT ========== */
-.game-dashboard-page {
+.dashboard-header-wrapper {
+  position: relative;
+}
+
+.dashboard-back-btn {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 101;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.dashboard-back-btn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+}
+
+.dashboard-location {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: var(--space-sm);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-default);
+  margin: 0;
 }
 
 .dashboard {
@@ -479,8 +580,7 @@ h4 { font-size: 1rem; }
   grid-template-columns: 1fr minmax(280px, 320px) 1fr;
   gap: var(--space-md);
   padding: var(--space-md);
-  flex: 1;
-  min-height: 0;
+  min-height: calc(100vh - 160px);
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -1030,6 +1130,13 @@ h4 { font-size: 1rem; }
     grid-template-columns: 1fr;
   }
   
+  .dashboard-back-btn {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8rem;
+    top: var(--space-sm);
+    left: var(--space-sm);
+  }
+  
   .dashboard {
     padding: var(--space-sm) var(--space-md);
   }
@@ -1078,8 +1185,19 @@ h4 { font-size: 1rem; }
     padding: var(--space-md);
   }
   
-  .game-card .score {
+  .game-card-logo,
+  .game-card-logo-fallback {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .game-card-score-num {
     font-size: 1.5rem;
+    min-width: 45px;
+  }
+  
+  .game-card-matchup {
+    gap: var(--space-md);
   }
   
   .scoreboard-container h2 {

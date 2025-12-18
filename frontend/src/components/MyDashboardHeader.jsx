@@ -46,7 +46,10 @@ export default React.memo(function MyDashboardHeader({ headerData }) {
   }, [navigate]);
   
   return (
-    <div>
+    <div className="dashboard-header-wrapper">
+      <button className="dashboard-back-btn" onClick={handleBack}>
+        ← Back
+      </button>
       <div className="dashboard">
         <TeamLogo 
           src={headerData?.homeLogo} 
@@ -69,7 +72,7 @@ export default React.memo(function MyDashboardHeader({ headerData }) {
         />
       </div>
       {(headerData?.location || headerData?.state) && (
-        <p>
+        <p className="dashboard-location">
           📍 {[headerData?.location, headerData?.state].filter(Boolean).join(', ')}
         </p>
       )}
