@@ -1,9 +1,10 @@
+import React, { useMemo, useCallback } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function MyDatePicker({ date, setDate, min, max }) {
-  // Try ISO first; if not ISO, try DD-MM-YYYY.
-  const parseFlexible = (s) => {
+export default React.memo(function MyDatePicker({ date, setDate, min, max }) {
+  // Parse date string to Date object
+  const parseFlexible = useCallback((s) => {
     if (!s) return null;
     const parts = s.split("-").map(Number);
     if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
@@ -19,35 +20,57 @@ export default function MyDatePicker({ date, setDate, min, max }) {
     const [dd, mm, yyyy] = parts;
     const d = new Date(yyyy, mm - 1, dd);
     return Number.isNaN(d.getTime()) ? null : d;
-  };
+  }, []);
 
-  const toISO = (d) => {
+  const toISO = useCallback((d) => {
     const yyyy = d.getFullYear();
     const mm = String(d.getMonth() + 1).padStart(2, "0");
     const dd = String(d.getDate()).padStart(2, "0");
     return `${yyyy}-${mm}-${dd}`;
-  };
+  }, []);
 
-  // If parse fails, show today (avoids 1930 look)
-  const selectedDate = parseFlexible(date) ?? new Date();
+  // Memoize selected date
+  const selectedDate = useMemo(() => {
+    return parseFlexible(date) ?? new Date();
+  }, [date, parseFlexible]);
 
-  // Optional limits (pass ISO strings in min/max if you want)
-  const minDate = min ? parseFlexible(min) : undefined;
-  const maxDate = max ? parseFlexible(max) : undefined;
+  // Memoize min/max dates
+  const minDate = useMemo(() => min ? parseFlexible(min) : undefined, [min, parseFlexible]);
+  const maxDate = useMemo(() => max ? parseFlexible(max) : undefined, [max, parseFlexible]);
+
+  const handleChange = useCallback((d) => {
+    if (d) setDate(toISO(d));
+  }, [setDate, toISO]);
+
+  const formattedDate = useMemo(() => {
+    return selectedDate.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }, [selectedDate]);
 
   return (
-    <div>
+    <div className="date-picker-wrapper">
       <DatePicker
         selected={selectedDate}
-        onChange={(d) => d && setDate(toISO(d))}
+        onChange={handleChange}
         isClearable={false}
         dateFormat="yyyy-MM-dd"
         className="date-picker"
         calendarClassName="calendar"
         minDate={minDate}
         maxDate={maxDate}
+        showPopperArrow={false}
       />
-      <p>{toISO(selectedDate)}</p>
+      <p style={{ 
+        color: 'var(--text-secondary)',
+        fontSize: '0.9rem',
+        margin: 0
+      }}>
+        {formattedDate}
+      </p>
     </div>
   );
-}
+});

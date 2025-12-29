@@ -2,6 +2,12 @@
 
 A modern, responsive web application for tracking NBA games, player statistics, and live scores. Built with React frontend and Flask backend, featuring real-time data from the NBA API.
 
+## 🌐 Live Demo
+
+**[View the app live → nba.adamchamberla.in](https://nba.adamchamberla.in/)**
+
+---
+
 ![NBA Tracker](https://img.shields.io/badge/NBA-Tracker-orange?style=for-the-badge&logo=basketball)
 ![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
 ![Flask](https://img.shields.io/badge/Flask-2.0+-green?style=for-the-badge&logo=flask)
@@ -46,9 +52,9 @@ A modern, responsive web application for tracking NBA games, player statistics, 
    ```bash
    cd backend
    pip install -r requirements.txt
-   python app.py
+   python server.py
    ```
-   The Flask server will start on `http://localhost:5000`
+   The Flask server will start on `http://localhost:8000`
 
 3. **Frontend Setup**
    ```bash
@@ -169,6 +175,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - React team for the amazing frontend framework
 - Flask team for the lightweight Python web framework
 - All contributors and testers
+
+## 🚀 Deployment
+
+The app is deployed using:
+- **Frontend**: [Vercel](https://vercel.com) - React/Vite hosting
+- **Backend**: [Render](https://render.com) - Flask API hosting
+
+### Environment Variables
+
+**Frontend (Vercel):**
+- `VITE_API_URL` - Backend API URL
+
+---
 
 ## 📞 Support
 

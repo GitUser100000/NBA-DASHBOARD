@@ -1,13 +1,22 @@
+import React, { useCallback } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export default function MyGoToGameButton({ gameId }) {
+export default React.memo(function MyGoToGameButton({ gameId }) {
   const navigate = useNavigate(); 
   
-  const handleClick = () => {
-    navigate(`/GameDashboard/${gameId}`);
-  };
+  const handleClick = useCallback(() => {
+    if (gameId) {
+      navigate(`/GameDashboard/${gameId}`);
+    }
+  }, [navigate, gameId]);
 
   return (
-    <button onClick={handleClick}>Go to Game</button>
+    <button 
+      className="go-to-game-button" 
+      onClick={handleClick}
+      disabled={!gameId}
+    >
+      View Game
+    </button>
   );
-};
+});

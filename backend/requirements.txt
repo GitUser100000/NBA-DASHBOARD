@@ -1,4 +1,6 @@
 flask
+flask-cors
+flask-compress
 requests
 nba_api
-flask-cors
+gunicorn
